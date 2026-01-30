@@ -1,0 +1,726 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    padding-top: 80px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* TOP SECTION 1: Main Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #1ae3ccb7;
+    background: rgba(5, 111, 101, 0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Logo container */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo in navigation */
+nav img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Organization name next to logo */
+.nav-logo h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links ul li {
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-links ul li a:hover {
+    background-color: rgba(5, 111, 101, 0.7);
+}
+.nav-links ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+/* Services dropdown menu */
+.Services {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #046a5b92;
+    min-width: 180px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    border-radius: 6px;
+    padding: 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Show on hover */
+.nav-links ul li:hover .Services {
+    max-height: 260px;
+    opacity: 1;
+    visibility: visible;
+    padding: 8px 0;
+}
+
+/* Dropdown items */
+.Services li {
+    display: block;
+    width: auto;
+}
+
+/* Dropdown links */
+.Services li a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 0;
+    white-space: nowrap;
+    margin: 0;
+}
+
+/* Hover effect for items */
+.Services li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;  /* full screen height */
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* makes image cover without stretching */
+}
+
+.banner h1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5); /* for readability */
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+/* Dog Gallery */
+.dog-gallery {
+    text-align: center;
+    padding: 60px 5%;
+}
+
+.dog-gallery h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.dog-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.dog-images img {
+   width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.dog-images img:hover {
+    transform: scale(1.05);
+}
+/* Dog gallery */
+.dog-gallery {
+    text-align: center;
+    margin: 20px auto;
+}
+.dog-images {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.dog-images img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.dog-images img:hover {
+    transform: scale(1.05);
+}
+
+/* Cruelty Report Form */
+.form-container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+     display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+    color: #34495e;
+    font-size: 16px;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+      width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+.form-container textarea {
+        width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+.form-container input[readonly] {
+      width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+.form-container .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-container button{
+       display: block;
+    width: 100%;
+    padding: 18px;
+    background: #056f65b8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+.form-container input[type="reset"] {
+    flex: 1;
+    padding: 12px;
+    background: linear-gradient(45deg, #50ffc8, rgba(5, 111, 101, 0.7));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-container button:hover,
+.form-container input[type="reset"]:hover {
+     background: #045950;
+    transform: translateY(-2px);
+}
+/* Form container */
+.form-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white; /* form background */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+.form-container h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    
+}
+.form-intro {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #555;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    color: #444;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+input[type="file"] {
+    border: none;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+button {
+    background: linear-gradient(45deg, #50ffc8, rgba(5, 111, 101, 0.7));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+button:hover {
+       background: #045950;
+    transform: translateY(-2px);
+}
+/* Footer Section */
+footer {
+    background-color: #056f65b8;
+    color: white;
+    padding: 40px 20px 20px;
+    position: relative;
+    margin-top: 460px; /* Adjusted for nav-container min-height */
+}
+
+.footerHeader {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+/* Footer Logo */
+footer a:first-of-type img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+
+/* Footer Grid Layout */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+footer li:first-child {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #b3e5fc;
+}
+
+/* Social media section */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.social-links .social-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Icons row */
+.social-links .icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-links .icons a img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-links .icons a img:hover {
+    transform: scale(1.15);
+}
+
+footer p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .dog-images {
+        flex-direction: column;
+        align-items: center;
+    }
+.footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    footer a:first-of-type img {
+        margin: 0 auto 20px;
+        display: block;
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 28px;
+    }
+
+    .dog-images img {
+        width: 90%;
+        height: auto;
+    }
+     /* Footer adjustments */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    footer a:first-of-type img {
+        margin: 0 auto 20px;
+        display: block;
+    }
+
+}
+      
+
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 8px; /* tighter than margin-left */
+  }
+    .checkbox-label {
+       display: block;
+    margin: 10px 0 5px;
+    font-weight: 500;
+    color: #34495e;
+    font-size: 16px;
+    }
+      .report-anonymous input[type="checkbox"] {
+    transform: scale(1.2); /* optional: make checkbox slightly larger */
+  }
+  /* Cruelty Reporting Cards */
+.report-options {
+    width: 100%;
+    text-align: center;
+    padding: 80px 5% 60px;
+    background: white;
+    position: relative;
+    max-width: 1400px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border-top: 4px solid #056f65b8;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+/* Success Stories */
+.success-stories {
+    width: 100%;
+    text-align: center;
+    padding: 80px 5% 60px;
+    background: white;
+    position: relative;
+    max-width: 1400px;
+    margin: 30px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.success-stories h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.stories-grid {
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border-top: 4px solid #056f65b8;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+}
+
+.story-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.story-card h3 {
+  font-weight: 600;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.story-card p {
+  color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+.check-status {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.check-status input {
+    width: 70%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.check-status button {
+      display: block;
+    width: 100%;
+    padding: 18px;
+    background: #056f65b8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.check-status button:hover {
+      background: #045950;
+    transform: translateY(-2px);
+}
+
+.status-result {
+    margin-top: 20px;
+    background: #f6f6fc;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}

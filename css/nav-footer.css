@@ -1,0 +1,334 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* TOP SECTION 1: Main Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #03574fb8;
+    background: rgba(7, 71, 64, 0.693);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Logo container */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo in navigation */
+nav img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Organization name next to logo */
+.nav-logo h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links ul li {
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-links ul li a:hover {
+    background-color: rgba(7, 105, 89, 0.809);
+}
+
+.nav-links ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+/* Donate button styling */
+.donate-btn {
+    background-color: #dc2626 !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 20px;
+}
+
+.donate-btn:hover {
+    background-color: #b91c1c !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+/* Services dropdown menu */
+.Services {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #046a5b92;
+    min-width: 180px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    border-radius: 6px;
+    padding: 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Show on hover */
+.nav-links ul li:hover .Services {
+    max-height: 260px;
+    opacity: 1;
+    visibility: visible;
+    padding: 8px 0;
+}
+
+/* Dropdown items */
+.Services li {
+    display: block;
+    width: auto;
+}
+
+/* Dropdown links */
+.Services li a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 0;
+    white-space: nowrap;
+    margin: 0;
+}
+
+/* Hover effect for items */
+.Services li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile menu icons (hidden by default) */
+.fa {
+    display: none;
+}
+
+/* Footer Section */
+footer {
+    background-color: #056f65b8;
+    color: white;
+    padding: 40px 20px 20px;
+    position: relative;
+    margin-top: 460px; /* Adjusted for nav-container min-height */
+}
+
+.footerHeader {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+/* Footer Logo */
+footer a:first-of-type img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+
+/* Footer Grid Layout */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+footer li:first-child {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: white !important; /* Override body color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #b3e5fc;
+}
+
+/* Social media section */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.social-links .social-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Icons row */
+.social-links .icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-links .icons a img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-links .icons a img:hover {
+    transform: scale(1.15);
+}
+
+footer p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Responsive Design for Navigation and Footer */
+@media (max-width: 768px) {
+    /* Navigation adjustments */
+    nav {
+        padding: 10px 3%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 16px;
+    }
+    
+    nav img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .nav-links ul {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .donate-btn {
+        padding: 10px 18px !important;
+        font-size: 14px !important;
+    }
+    
+    /* Footer adjustments */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    footer a:first-of-type img {
+        margin: 0 auto 20px;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Navigation adjustments */
+    .nav-container {
+        padding: 30px 15px;
+    }
+    .nav-Adopt,
+    .nav-Volunteer,
+    .nav-Report,
+    .nav-Donate {
+        width: 200px;
+    }
+}

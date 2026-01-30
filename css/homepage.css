@@ -1,0 +1,851 @@
+
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+     padding-top: 80px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f9; /* Light page background */
+}
+
+/* TOP SECTION 1: Main Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color:  #03574fb8;
+    background: rgba(7, 71, 64, 0.693);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Logo container */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo in navigation */
+nav img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Organization name next to logo */
+.nav-logo h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links ul li {
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-links ul li a:hover {
+    background-color: rgba(7, 105, 89, 0.809);
+}
+.nav-links ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+/* Donate button styling */
+.donate-btn {
+    background-color: #dc2626 !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 20px;
+}
+
+.donate-btn:hover {
+    background-color: #b91c1c !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+
+/* Services dropdown menu */
+.Services {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #046a5b92;
+    min-width: 180px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    border-radius: 6px;
+    padding: 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Show on hover */
+.nav-links ul li:hover .Services {
+    max-height: 260px; /* Adjustable height for wrapped items */
+    opacity: 1;
+    visibility: visible;
+    padding: 8px 0;
+}
+
+/* Dropdown items */
+.Services li {
+    display: block;
+    width: auto;
+}
+
+/* Dropdown links */
+.Services li a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 0;
+    white-space: nowrap;
+    margin: 0;
+}
+
+/* Hover effect for items */
+.Services li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hover effect for items */
+.Services li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile menu icons (hidden by default) */
+.fa {
+    display: none;
+}
+
+/* Subheading styling */
+.sub {
+    text-align: center;
+    color: #1a237e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 40px 0;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* TOP SECTION 2: Action Navigation Buttons */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px 20px;
+    min-height: 400px; /* Ensure enough space to prevent footer overlap */
+}
+
+/* Each square block */
+.nav-Adopt,
+.nav-Volunteer,
+.nav-Report,
+.nav-Donate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    text-align: center;
+}
+
+/* Images fit inside square nicely */
+.nav-Adopt img, 
+.nav-Volunteer img,
+.nav-Report img,
+.nav-Donate img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Image hover effect: zoom + drop */
+.nav-Adopt img:hover,
+.nav-Volunteer img:hover,
+.nav-Report img:hover,
+.nav-Donate img:hover {
+    transform: scale(1.05) translateY(5px);
+    cursor: pointer;
+}
+
+/* Styling for descriptions */
+.nav-descriptions {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 10px 0;
+    font-weight: 400;
+    padding: 0 10px;
+    text-align: center;
+    max-width: 100%;
+}
+
+/* Style buttons */
+.nav-Adopt button,
+.nav-Volunteer button,
+.nav-Report button,
+.nav-Donate button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #14b39e, #14b39e);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect: turns white */
+.nav-Adopt button:hover,
+.nav-Volunteer button:hover,
+.nav-Report button:hover,
+.nav-Donate button:hover {
+    background: white;
+    color: #0ed7a1;
+    transform: scale(1.1);
+}
+
+/* SECTION 3: Hero Section with Background Image */
+.header {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("heroImage.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Hero text content */
+.text-box {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.text-box h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.text-box p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Scroll down arrow */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* SECTION 4: About Section */
+.MSPCA {
+    width: 100%;
+    text-align: center;
+    padding: 80px 5% 60px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.MSPCA::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4caf50, #2196f3, #4caf50);
+}
+
+.MSPCA h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 30px;
+}
+
+.MSPCA > p {
+    color: #424242;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding: 0 10%;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* Mission, Vision, Values cards container */
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual cards */
+.row1 {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    background: white;
+    border-radius: 15px;
+    padding: 30px 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #4caf50;
+}
+
+.row1 h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1a237e;
+    font-size: 1.5rem;
+}
+
+.row1 p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.row1:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.row1:nth-child(2) {
+    border-top-color: #ff9800;
+}
+
+.row1:nth-child(3) {
+    border-top-color: #e91e63;
+}
+
+/*Adoption*/
+
+/* Apply Button */
+.apply-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #50ffc8, #0ce18c);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.apply-btn:hover {
+    background: #fff;
+    color: #0ed7a1;
+    border: 2px solid #0ed7a1;
+    transform: scale(1.05);
+}
+
+/* Adoption and Status Check Forms */
+.adoption-form,
+.status-check-form {
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.adoption-form label,
+.status-check-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #1a237e;
+    font-size: 14px;
+}
+
+.adoption-form input,
+.adoption-form textarea,
+.status-check-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.adoption-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.adoption-form input[readonly] {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.adoption-form button,
+.status-check-form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #50ffc8, #0ce18c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.adoption-form button:hover,
+.status-check-form button:hover {
+    background: #fff;
+    color: #0ed7a1;
+    border: 2px solid #0ed7a1;
+    transform: scale(1.05);
+}
+
+/* Application Status Table */
+.status-table,
+.schedule-table {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.status-table th,
+.status-table td,
+.schedule-table th,
+.schedule-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.status-table th,
+.schedule-table th {
+    background: #1a237e;
+    color: white;
+    font-size: 15px;
+}
+
+.status-table tr:hover,
+.schedule-table tr:hover {
+    background: #f9f9f9;
+}
+
+/* Progress Box */
+.progress-box {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.progress-box h4 {
+    font-size: 20px;
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+/* Volunteer Form */
+.volunteer-form {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.volunteer-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #1a237e;
+    font-size: 14px;
+}
+
+.volunteer-form input,
+.volunteer-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.volunteer-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.volunteer-form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #50ffc8, #0ce18c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volunteer-form button:hover {
+    background: #fff;
+    color: #0ed7a1;
+    border: 2px solid #0ed7a1;
+    transform: scale(1.05);
+}
+
+/* Footer Section */
+footer {
+    background-color: #056f65b8;
+    color: white;
+    padding: 40px 20px 20px;
+    position: relative;
+    margin-top: 60px; /* Added to prevent overlap with nav-container */
+}
+
+.footerHeader {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+/* Footer Logo */
+footer a:first-of-type img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+}
+
+/* Footer Grid Layout */
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+footer li:first-child {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #b3e5fc;
+}
+
+/* Social media section */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.social-links .social-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Icons row */
+.social-links .icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-links .icons a img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-links .icons a img:hover {
+    transform: scale(1.15);
+}
+
+footer p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Navigation adjustments */
+    nav {
+        padding: 10px 3%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 16px;
+    }
+    
+    nav img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .nav-links ul {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .nav-links ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .donate-btn {
+        padding: 10px 18px !important;
+        font-size: 14px !important;
+    }
+    
+    /* Action buttons stack vertically */
+    .nav-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+        min-height: auto; /* Reset for mobile */
+    }
+    .nav-Adopt,
+    .nav-Volunteer,
+    .nav-Report,
+    .nav-Donate {
+        width: 250px;
+    }
+    
+    /* Hero text adjustments */
+    .text-box h1 {
+        font-size: 2.5rem;
+    }
+    
+    .text-box p {
+        font-size: 1.2rem;
+    }
+    
+    /* About section adjustments */
+    .MSPCA {
+        padding: 60px 3% 40px;
+    }
+    
+    .MSPCA h3 {
+        font-size: 2rem;
+    }
+    
+    .MSPCA > p {
+        padding: 0 5%;
+        font-size: 1rem;
+    }
+    
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .row1 {
+        max-width: 100%;
+    }
+    
+    /* Footer adjustments */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    footer a:first-of-type img {
+        margin: 0 auto 20px;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-box h1 {
+        font-size: 2rem;
+    }
+    
+    .text-box p {
+        font-size: 1rem;
+    }
+    
+    .MSPCA h3 {
+        font-size: 1.8rem;
+    }
+    
+    .nav-container {
+        padding: 30px 15px;
+    }
+    .nav-Adopt,
+    .nav-Volunteer,
+    .nav-Report,
+    .nav-Donate {
+        width: 200px;
+    }
+    
+    .sub {
+    text-align: center;
+    font-size: 1.8rem;              /* slightly bigger */
+    font-weight: 600;              /* bold but not too heavy */
+    color: #1a237e;                /* deep blue for trust/serious tone */
+    margin: 40px 0 25px;           /* good spacing above & below */
+    letter-spacing: 1px;           /* subtle spacing for clarity */
+    text-transform: uppercase;     /* makes it feel like a true subheading */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15); /* soft depth */
+    font-family: "Segoe UI", Arial, sans-serif; /* clean modern font */
+}
+
+}
+
+

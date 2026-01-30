@@ -1,0 +1,298 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Heading */
+h1, h2 {
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+}
+
+/* Table */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+th {
+  background: rgba(5, 111, 101, 0.7);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+tr:hover {
+  background-color: rgba(14, 215, 161, 0.1);
+  transition: background 0.3s;
+}
+
+/* Buttons & Links */
+a, button {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin: 0 3px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Primary action colors */
+.update-btn {
+  background: #2196F3;
+  color: white;
+}
+
+.delete-btn {
+  background: #f44336;
+  color: white;
+}
+
+.view-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.resolve-btn,
+.restore-btn,
+.btn-primary {
+  background: rgba(5, 111, 101, 0.7);
+  color: white;
+}
+
+.btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+
+/* Status badges */
+.status.new,
+.status-pending {
+  background-color: #f39c12;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.status.active,
+.status-rejected {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.status.resolved,
+.status-approved {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Urgent highlighting */
+.urgent {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Notifications */
+.notification {
+  width: 90%;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.success {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.error {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+/* Table container */
+.table-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+/* Animal Image */
+.animal-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  margin: 20px;
+  padding: 10px 15px;
+  background: #50ffc8, rgba(5, 111, 101, 0.7);
+  color: white;
+  border-radius: 4px;
+}
+
+/* Filters */
+.filters {
+  width: 90%;
+  margin: 20px auto;
+  padding: 15px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+.filter-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+.filter-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+.filter-group select,
+.filter-group input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .main-content {
+    padding: 10px;
+  }
+  table th,
+  table td {
+    padding: 8px 10px;
+  }
+
+}
+.back-dashboard {
+    margin: 20px;
+    text-align: left;
+}
+
+.btn-back {
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: rgba(5, 111, 101, 0.7);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: rgba(5, 111, 101, 0.7);
+}
+.actions-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    border: none;
+    background-color: #045e5e;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.actions-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
