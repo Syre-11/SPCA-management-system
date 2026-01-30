@@ -1,0 +1,145 @@
+/* Animal Records Theme - Reusable CSS */
+.animal-records-theme {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
+    margin: 0;
+    padding: 0;
+}
+
+.animal-records-theme h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+.animal-records-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.animal-records-table th,
+.animal-records-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.animal-records-table th {
+    background: #056f65b8;
+    color: white;
+}
+
+.animal-records-table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.animal-records-btn {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin: 0 3px;
+    display: inline-block;
+}
+
+.update-btn {
+    background: #2196F3;
+    color: white;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+.health-status {
+    font-weight: bold;
+}
+
+.health-excellent {
+    color: #056f65b8;
+}
+
+.health-good {
+    color: #3498db;
+}
+
+.health-fair {
+    color: #f39c12;
+}
+
+.health-poor {
+    color: #e74c3c;
+}
+
+.animal-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+
+.back-btn {
+       display: block;
+    width: 100%;
+    padding: 18px;
+    background: #056f65b8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.back-btn:hover {
+  background: #045950;
+    transform: translateY(-2px);
+}
+
+/* Footer Section */
+
+footer {
+    background-color: rgba(5, 111, 101, 0.7);
+    color: white;
+    padding: 30px 10px;
+    font-family: Arial, sans-serif;
+}
+
+.footerHeader {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 10px ;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}

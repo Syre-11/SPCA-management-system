@@ -1,0 +1,564 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    padding-top: 80px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f9;
+}
+
+/* TOP SECTION: Main Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #1ae3ccb7;
+    background: rgba(26, 227, 204, 0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Logo container */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo in navigation */
+nav img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Organization name next to logo */
+.nav-logo h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links ul li {
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-links ul li a:hover {
+    background-color: rgba(132, 224, 175, 0.809);
+}
+
+.nav-links ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+/* MSPCA Sections */
+.MSPCA {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.MSPCA h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a237e;
+    margin-bottom: 30px;
+}
+
+.MSPCA>p {
+    color: #424242;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding: 0 10%;
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* Row layout for content sections */
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual content cards */
+.row1 {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: white;
+    border-radius: 15px;
+    padding: 30px 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #4caf50;
+}
+
+.row1 h3,
+.row1 h4 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1a237e;
+    font-size: 1.5rem;
+}
+
+.row1 p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.row1:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Adoption and Status Check Forms */
+.adoption-form,
+.status-check-form {
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.adoption-form label,
+.status-check-form label {
+    display: block;
+    margin: 15px 0 8px;
+    font-weight: bold;
+    color: #1a237e;
+    font-size: 14px;
+}
+
+.adoption-form input,
+.adoption-form textarea,
+.adoption-form select,
+.status-check-form input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.adoption-form input:focus,
+.adoption-form textarea:focus,
+.adoption-form select:focus,
+.status-check-form input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+.adoption-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.adoption-form button,
+.status-check-form button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #4caf50, #2196f3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.adoption-form button:hover,
+.status-check-form button:hover {
+    background: linear-gradient(45deg, #3d8b40, #1976d2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Status result styling */
+.status-result {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #4caf50;
+    margin-top: 20px;
+}
+
+.status-result p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.status-result strong {
+    color: #1a237e;
+}
+
+/* Animal Grid for adoptable animals */
+.animal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.animal-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.animal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.animal-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.animal-card h4 {
+    color: #1a237e;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.animal-card p {
+    color: #666;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.animal-card .bio {
+    font-style: italic;
+    color: #888;
+    margin: 15px 0;
+}
+
+.adopt-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #4caf50, #2196f3);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.adopt-button:hover {
+    background: linear-gradient(45deg, #3d8b40, #1976d2);
+    transform: translateY(-2px);
+}
+
+/* Footer Section */
+footer {
+    background-color: #13cebb;
+    color: white;
+    padding: 40px 20px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footerHeader {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 20px 0;
+}
+
+footer p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    /* Navigation adjustments */
+    nav {
+        padding: 10px 3%;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-logo h2 {
+        font-size: 16px;
+    }
+
+    nav img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-links ul {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    /* Header adjustments */
+    .header {
+        padding: 80px 5% 60px;
+    }
+
+    .text-box h1 {
+        font-size: 2.5rem;
+    }
+
+    .text-box p {
+        font-size: 1.2rem;
+    }
+
+    /* MSPCA sections */
+    .MSPCA {
+        width: 90%;
+        padding: 40px 0;
+    }
+
+    .MSPCA h3 {
+        font-size: 2rem;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .row1 {
+        max-width: 100%;
+    }
+
+    /* Forms */
+    .adoption-form,
+    .status-check-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-box h1 {
+        font-size: 2rem;
+    }
+
+    .text-box p {
+        font-size: 1rem;
+    }
+
+    .MSPCA h3 {
+        font-size: 1.8rem;
+    }
+
+    .animal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+        /* Status badges */
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-pending {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .status-approved {
+            background-color: #d1fae5;
+            color: #059669;
+        }
+
+        .status-rejected {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+
+        /* Table styling */
+        .applications-table {
+            width: 95%;
+            max-width: 1400px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .applications-table th {
+            background: #1a237e;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .applications-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .applications-table tr:hover {
+            background-color: #f3f4f6;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-approve,
+        .btn-reject {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-approve {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: white;
+        }
+
+        .btn-approve:hover {
+            background: white;
+            color: #10b981;
+            border: 2px solid #10b981;
+        }
+
+        .btn-reject {
+            background: linear-gradient(45deg, #ef4444, #f87171);
+            color: white;
+        }
+
+        .btn-reject:hover {
+            background: white;
+            color: #ef4444;
+            border: 2px solid #ef4444;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .notification {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .success {
+            color: green;
+            background: #f0fdf4;
+        }
+
+        .error {
+            color: red;
+            background: #fef2f2;
+        }
+
+        .adopter-link {
+            color: #1a237e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .adopter-link:hover {
+            text-decoration: underline;
+        }

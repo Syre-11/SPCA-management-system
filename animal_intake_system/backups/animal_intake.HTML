@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Intake</title>
+    <style>
+        body {
+            background-color: #e6eff7;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        form {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #4a90e2;
+            color: white;
+            font-size: 1.2em;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        input[type="text"], input[type="number"], input[type="date"], input[type="file"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        input[type="submit"], input[type="reset"], .button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover, .button:hover {
+            background-color: #357abd;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .radio-group {
+            margin: 10px 0;
+        }
+        .radio-group label {
+            display: inline;
+            margin-right: 15px;
+        }
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        .kennel-section {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .optional-field {
+            opacity: 0.6;
+        }
+        .button-secondary {
+            background-color: #6c757d;
+        }
+        .button-secondary:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+<form action="animal_intake.php" method="POST" enctype="multipart/form-data" id="animalForm">
+<table width="75%">
+    <tr><th colspan="2"> Animal intake :</th></tr>
+
+    <!-- Animal Table Inputs -->
+    <tr><td>Pet ID Number:</td><td><input type="text" id="Animal_ID" name="Animal_ID" value="Auto-generated" readonly></td></tr>  
+
+    <tr><td>Type:</td><td>
+        <input type="radio" id="species_dog" name="Animal_Species" value="Dog" required>
+        <label for="species_dog">Dog</label>
+        <input type="radio" id="species_cat" name="Animal_Species" value="Cat" required>
+        <label for="species_cat">Cat</label>
+    </td></tr>
+
+    <tr><td>Pet Name:</td><td><input type="text" id="Animal_Name" name="Animal_Name" required></td></tr>
+
+    <tr><td>Choose Gender:</td><td>
+        <select name="Animal_Gender" id="Animal_Gender" required>   
+            <option value="">None</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+    </td></tr> 
+
+    <tr><td>Choose Breed:</td><td>
+        <select name="Animal_Breed" id="Animal_Breed" required>
+            <option value="">None</option>
+            <optgroup label="Dog Breeds">
+                <option value="Affenpinscher">Affenpinscher</option>
+                <option value="Akita">Akita</option>
+                <option value="Beagle">Beagle</option>
+                <option value="German Sheperd">German Sheperd</option>
+                <option value="Labrador Retriever">Labrador Retriever</option>
+            </optgroup>
+            <optgroup label="Cat Breeds">
+                <option value="Abyssinian">Abyssinian</option>
+                <option value="Bengal">Bengal</option>
+                <option value="Maine Coon">Maine Coon</option>
+                <option value="Persian">Persian</option>
+                <option value="Siamese">Siamese</option>
+            </optgroup>
+        </select>
+    </td></tr>
+
+    <tr><td>Age:</td><td>
+        <input type="number" id="Animal_Age" name="Animal_Age" min="1" required> Years
+    </td></tr>
+
+    <tr><td>Health Status:</td><td>
+        <select name="Animal_Health" required>
+            <option value="">Select Health Status</option>
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Poor">Poor</option>
+        </select>
+    </td></tr>
+
+    <tr><td>Intake Date:</td><td><input type="date" id="Animal_Arrival_Date" name="Animal_Arrival_Date" required></td></tr>
+
+    <tr><td>Adoption Status:</td><td>
+        <select name="Animal_AdoptionStatus" required>
+            <option value="Available">Available</option>
+            <option value="Adopted">Adopted</option>
+            <option value="Pending">Pending</option>
+            <option value="Deceased">Deceased</option>
+        </select>
+    </td></tr>
+
+    <!-- Kennel Selection -->
+    <tr><td colspan="2">
+        <div class="kennel-section">
+            <h3>Kennel Assignment</h3>
+            
+            <div class="radio-group">
+                <input type="radio" id="kennel_existing" name="kennel_option" value="existing" checked>
+                <label for="kennel_existing">Use Existing Kennel</label>
+                
+                <input type="radio" id="kennel_new" name="kennel_option" value="new">
+                <label for="kennel_new">Create New Kennel</label>
+            </div>
+
+            <!-- Existing Kennel Selection -->
+            <div id="existing_kennel_section">
+                <div class="form-group">
+                    <label for="Existing_Kennel_ID">Select Existing Kennel:</label>
+                    <select id="Existing_Kennel_ID" name="Existing_Kennel_ID" required>
+                        <option value="">-- Select Kennel --</option>
+                        <!-- Kennels will be populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- New Kennel Creation -->
+            <div id="new_kennel_section" style="display: none;">
+                <tr><td>Kennel ID:</td><td><input type="number" id="Kennel_ID" name="Kennel_ID" min="1" class="optional-field"></td></tr>
+
+                <tr><td>Kennel Name:</td><td><input type="text" id="Kennel_Name" name="Kennel_Name" class="optional-field"></td></tr>
+
+                <tr><td>Capacity:</td><td><input type="number" id="Capacity" name="Capacity" min="1" class="optional-field"></td></tr>
+
+                <tr><td>Size:</td><td>
+                    <select name="Size" id="Size" class="optional-field">
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </td></tr>
+
+                <tr><td>Animal Type:</td><td>
+                    <select name="Animal_Type" id="Animal_Type" class="optional-field">
+                        <option value="">Choose Type</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Mixed">Mixed</option>
+                    </select>
+                </td></tr>
+
+                <tr><td>Availability:</td><td><input type="number" id="Availability" name="Availability" min="1" class="optional-field"></td></tr>
+            </div>
+        </div>
+    </td></tr>
+
+    <!-- File Upload -->
+    <tr><td>Image:</td><td><input type="file" id="picture" name="picture" required></td></tr>
+
+    <!-- Buttons -->
+    <tr>
+        <td colspan="2">
+            <div class="button-container">
+                <input type="submit" value="Create Animal record">
+                <input type="reset" value="Clear form" class="button-secondary">
+                <a href="display_animals.php" class="button">Show all Animal Records</a>
+            </div>
+        </td>
+    </tr>
+</table>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const kennelExisting = document.getElementById('kennel_existing');
+    const kennelNew = document.getElementById('kennel_new');
+    const existingKennelSection = document.getElementById('existing_kennel_section');
+    const newKennelSection = document.getElementById('new_kennel_section');
+    const existingKennelSelect = document.getElementById('Existing_Kennel_ID');
+    const newKennelFields = document.querySelectorAll('#new_kennel_section input, #new_kennel_section select');
+    const form = document.getElementById('animalForm');
+    
+    // Fetch available kennels
+    fetchKennels();
+    
+    // Toggle between existing and new kennel sections
+    kennelExisting.addEventListener('change', toggleKennelSections);
+    kennelNew.addEventListener('change', toggleKennelSections);
+    
+    function toggleKennelSections() {
+        if (kennelExisting.checked) {
+            existingKennelSection.style.display = 'block';
+            newKennelSection.style.display = 'none';
+            
+            // Make existing kennel required, new kennel fields optional
+            existingKennelSelect.setAttribute('required', 'required');
+            newKennelFields.forEach(field => {
+                field.removeAttribute('required');
+                field.classList.add('optional-field');
+            });
+        } else {
+            existingKennelSection.style.display = 'none';
+            newKennelSection.style.display = 'block';
+            
+            // Make new kennel fields required, existing kennel optional
+            existingKennelSelect.removeAttribute('required');
+            newKennelFields.forEach(field => {
+                field.setAttribute('required', 'required');
+                field.classList.remove('optional-field');
+            });
+        }
+    }
+    
+    function fetchKennels() {
+        // Send AJAX request to fetch kennel data
+        fetch('get_all_kennels.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.text().then(text => {
+                try {
+                    return JSON.parse(text);
+                } catch (e) {
+                    console.error('Failed to parse JSON:', text);
+                    throw new Error('Invalid JSON response from server');
+                }
+            });
+        })
+        .then(data => {
+            if (data.success) {
+                // Populate the dropdown with kennels
+                data.kennels.forEach(kennel => {
+                    const option = document.createElement('option');
+                    option.value = kennel.Kennel_ID;
+                    option.textContent = `Kennel #${kennel.Kennel_ID}: ${kennel.Kennel_Name} - ${kennel.Availability}/${kennel.Capacity} available (${kennel.Size} - ${kennel.Animal_Type})`;
+                    existingKennelSelect.appendChild(option);
+                });
+            } else {
+                console.error('Failed to fetch kennels:', data.message);
+                // If no kennels found, auto-select new kennel option
+                kennelNew.checked = true;
+                toggleKennelSections();
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            // Fallback: Add a generic option if fetch fails
+            const option = document.createElement('option');
+            option.value = '';
+            option.textContent = 'Error loading kennels. Please create a new kennel.';
+            existingKennelSelect.appendChild(option);
+            kennelNew.checked = true;
+            toggleKennelSections();
+        });
+    }
+    
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        // Clear any previous validation messages
+        clearValidation();
+        
+        // Validate based on kennel selection
+        if (kennelExisting.checked) {
+            if (!existingKennelSelect.value) {
+                e.preventDefault();
+                showValidationError(existingKennelSelect, 'Please select an existing kennel');
+            }
+        } else {
+            let hasErrors = false;
+            newKennelFields.forEach(field => {
+                if (!field.value) {
+                    hasErrors = true;
+                    showValidationError(field, 'This field is required when creating a new kennel');
+                }
+            });
+            
+            if (hasErrors) {
+                e.preventDefault();
+            }
+        }
+    });
+    
+    function showValidationError(field, message) {
+        field.style.borderColor = 'red';
+        const errorDiv = document.createElement('div');
+        errorDiv.style.color = 'red';
+        errorDiv.style.fontSize = '12px';
+        errorDiv.textContent = message;
+        field.parentNode.appendChild(errorDiv);
+    }
+    
+    function clearValidation() {
+        // Clear all validation styles and messages
+        const allFields = document.querySelectorAll('input, select');
+        allFields.forEach(field => {
+            field.style.borderColor = '';
+        });
+        
+        const errorMessages = document.querySelectorAll('[style="color: red; font-size: 12px;"]');
+        errorMessages.forEach(msg => msg.remove());
+    }
+    
+    // Initialize form state
+    toggleKennelSections();
+    
+    // Set today's date as default for intake date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('Animal_Arrival_Date').value = today;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Intake</title>
+    <link rel="stylesheet" href="animal_records_theme.css">
+    <style>
+        /* Additional styles for animal intake form */
+        .animal-intake-container {
+            background-color: #f9fafb;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px 40px;
+            box-sizing: border-box;
+        }
+        
+        .animal-intake-form {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .animal-intake-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .animal-intake-table th, 
+        .animal-intake-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .animal-intake-table th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        .animal-intake-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .animal-intake-table input[type="text"], 
+        .animal-intake-table input[type="number"], 
+        .animal-intake-table input[type="date"], 
+        .animal-intake-table input[type="file"], 
+        .animal-intake-table select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        
+        .animal-intake-table input[type="submit"], 
+        .animal-intake-table input[type="reset"], 
+        .animal-intake-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        
+        .animal-intake-table input[type="submit"]:hover, 
+        .animal-intake-table input[type="reset"]:hover, 
+        .animal-intake-button:hover {
+            background-color: #3d8b40;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .radio-group {
+            margin: 10px 0;
+        }
+        
+        .radio-group label {
+            display: inline;
+            margin-right: 15px;
+        }
+        
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        
+        .button-secondary {
+            background-color: #6c757d;
+        }
+        
+        .button-secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        /* Navigation styles */
+        nav {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-logo h2 {
+            margin: 0;
+            color: white;
+        }
+        
+        .nav-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin: 0 10px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="animal-records-theme">
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-logo">
+             <img src="images/Logo.png" alt="Makhanda SPCA Logo">
+            <h2>Paw Prints</h2>
+        </div>
+        <div class="nav-links">
+            <ul>
+                
+                <li><a href="animal_intake.html">Animal Intake</a></li>
+                <li><a href="display_animals.php">View Animals</a></li>
+                <li><a href="allocate_kennel.php">Manage Kennels</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="animal-intake-container">
+        <form action="animal_intake.php" method="POST" enctype="multipart/form-data" id="animalForm" class="animal-intake-form">
+            <table class="animal-intake-table">
+                <tr><th colspan="2">Animal Intake</th></tr>
+
+                <!-- Animal Table Inputs -->
+                <tr><td>Pet ID Number:</td><td><input type="text" id="Animal_ID" name="Animal_ID" value="Auto-generated" readonly></td></tr>  
+
+                <tr><td>Type:</td><td>
+                    <div class="radio-group">
+                        <input type="radio" id="species_dog" name="Animal_Species" value="Dog" required>
+                        <label for="species_dog">Dog</label>
+                        <input type="radio" id="species_cat" name="Animal_Species" value="Cat" required>
+                        <label for="species_cat">Cat</label>
+                    </div>
+                </td></tr>
+
+                <tr><td>Pet Name:</td><td><input type="text" id="Animal_Name" name="Animal_Name" required></td></tr>
+
+                <tr><td>Choose Gender:</td><td>
+                    <select name="Animal_Gender" id="Animal_Gender" required>   
+                        <option value="">None</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Unknown">Unknown</option>
+                    </select>
+                </td></tr> 
+
+                <tr><td>Choose Breed:</td><td>
+                    <select name="Animal_Breed" id="Animal_Breed" required>
+                        <option value="">None</option>
+                        <optgroup label="Dog Breeds">
+                            <option value="Affenpinscher">Affenpinscher</option>
+                            <option value="Akita">Akita</option>
+                            <option value="Beagle">Beagle</option>
+                            <option value="German Sheperd">German Sheperd</option>
+                            <option value="Labrador Retriever">Labrador Retriever</option>
+                        </optgroup>
+                        <optgroup label="Cat Breeds">
+                            <option value="Abyssinian">Abyssinian</option>
+                            <option value="Bengal">Bengal</option>
+                            <option value="Maine Coon">Maine Coon</option>
+                            <option value="Persian">Persian</option>
+                            <option value="Siamese">Siamese</option>
+                        </optgroup>
+                    </select>
+                </td></tr>
+
+                <tr><td>Age:</td><td>
+                    <input type="number" id="Animal_Age" name="Animal_Age" min="1" required> Years
+                </td></tr>
+
+                <tr><td>Size:</td><td>
+                    <select name="Animal_Size" id="Animal_Size" required>
+                        <option value="">Select Size</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </td></tr>
+
+                <tr><td>Health Status:</td><td>
+                    <select name="Animal_Health" required>
+                        <option value="">Select Health Status</option>
+                        <option value="Excellent">Excellent</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Poor">Poor</option>
+                    </select>
+                </td></tr>
+
+                <tr><td>Intake Date:</td><td><input type="date" id="Animal_Arrival_Date" name="Animal_Arrival_Date" required></td></tr>
+
+                <tr><td>Adoption Status:</td><td>
+                    <select name="Animal_AdoptionStatus" required>
+                        <option value="Available">Available</option>
+                        <option value="Adopted">Adopted</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Deceased">Deceased</option>
+                    </select>
+                </td></tr>
+
+                <!-- File Upload -->
+                <tr><td>Image:</td><td><input type="file" id="picture" name="picture" required></td></tr>
+
+                <!-- Buttons -->
+                <tr>
+                    <td colspan="2">
+                        <div class="button-container">
+                            <input type="submit" value="Create Animal record">
+                            <input type="reset" value="Clear form" class="button-secondary">
+                            <a href="display_animals.php" class="animal-intake-button">Show all Animal Records</a>
+                            <a href="allocate_kennel.php" class="animal-intake-button">Manage Kennels</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set today's date as default for intake date
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('Animal_Arrival_Date').value = today;
+        
+        // Auto-select size based on breed (optional enhancement)
+        document.getElementById('Animal_Breed').addEventListener('change', function() {
+            const breed = this.value;
+            const sizeSelect = document.getElementById('Animal_Size');
+            
+            // Reset to default
+            sizeSelect.value = '';
+            
+            // Auto-select size based on breed (example logic)
+            const largeBreeds = ['German Sheperd', 'Labrador Retriever', 'Akita', 'Maine Coon'];
+            const mediumBreeds = ['Beagle', 'Abyssinian', 'Bengal'];
+            const smallBreeds = ['Affenpinscher', 'Persian', 'Siamese'];
+            
+            if (largeBreeds.includes(breed)) {
+                sizeSelect.value = 'Large';
+            } else if (mediumBreeds.includes(breed)) {
+                sizeSelect.value = 'Medium';
+            } else if (smallBreeds.includes(breed)) {
+                sizeSelect.value = 'Small';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
