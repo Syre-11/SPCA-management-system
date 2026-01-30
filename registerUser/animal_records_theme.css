@@ -1,0 +1,92 @@
+/* Animal Records Theme - Reusable CSS */
+.animal-records-theme {
+    font-family: Arial, sans-serif;
+    background: #f9fafb;
+    margin: 0;
+    padding: 0;
+}
+
+.animal-records-theme h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+.animal-records-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.animal-records-table th, 
+.animal-records-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.animal-records-table th {
+    background: #056f65b8;
+    color: white;
+}
+
+.animal-records-table tr:nth-child(even) { 
+    background: #f2f2f2; 
+}
+
+.animal-records-btn {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin: 0 3px;
+    display: inline-block;
+}
+
+.update-btn {
+    background: #2196F3;
+    color: white;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+.health-status {
+    font-weight: bold;
+}
+
+.health-excellent { 
+    color: #056f65b8; 
+}
+
+.health-good { 
+    color: #3498db; 
+}
+
+.health-fair { 
+    color: #f39c12; 
+}
+
+.health-poor { 
+    color: #e74c3c; 
+}
+
+.animal-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 15px;
+    background: #056f65b8;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}

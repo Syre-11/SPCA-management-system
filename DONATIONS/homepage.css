@@ -1,0 +1,544 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom, #f4f4f9 0%, #e0f7f4 30%, #a8e6cf 60%, #70d5aa 90%, #13cebb 100%);
+    background-attachment: fixed; /* Ensures the gradient covers the full page height without repeating */
+}
+
+.login-section {
+    background-color: transparent; /* Allow gradient to show through */
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end; /* Align to far right */
+    align-items: center;
+}
+
+.login-section button {
+    padding: 8px 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 0; /* Cornerless button */
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-section button:hover {
+    background-color: #0056b3;
+}
+
+/* TOP SECTION 1: Main Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #1ae3ccb7;
+    background: rgba(26, 227, 204, 0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Logo container */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logo in navigation */
+nav img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+/* Organization name next to logo */
+.nav-logo h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul {
+    list-style-type: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links ul li {
+    position: relative;
+}
+
+.nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-links ul li a:hover {
+    background-color: rgba(132, 224, 175, 0.809);
+}
+.nav-links ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links ul li a:hover::after {
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .login-section {
+        padding: 10px 20px;
+    }
+    .navbar {
+        margin-top: 10px; /* Adjusted for smaller screens */
+        padding: 10px 20px;
+    }
+    .navbar .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 110px; /* Adjusted for login section and larger logo */
+        left: 0;
+        background-color: #f4f4f9; /* Match page background */
+        flex-direction: column;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    .navbar .nav-links.active {
+        display: flex;
+    }
+    .navbar .menu-icon {
+        display: block;
+    }
+}
+
+footer {
+    background-color: #13cebb; /* Dark blue background */
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footerHeader {
+    text-align: center;
+    margin-bottom: 20px; /* Space between heading and line */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+li:first-child {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.center-text {
+    text-align: center;
+    grid-column: 1 / 5; /* Span across all columns */
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.qr-code {
+    text-align: center;
+}
+
+.qr-code img {
+    width: 100px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+    .center-text {
+        grid-column: 1; /* Reset to single column */
+    }
+}
+
+.social-links {
+    list-style: none; /* Removes default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.social-links li {
+    display: inline-block; /* Places items horizontally */
+    margin-right: 15px; /* Space between items */
+}
+
+.social-links img {
+    width: 20px; /* Adjust size as needed */
+    height: auto; /* Maintains aspect ratio */
+    vertical-align: middle; /* Aligns image with text */
+}
+
+/* Wrapper to center everything */
+.nav-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+    gap: 30px; /* Space between squares */
+    padding: 20px;
+}
+
+/* Each square block */
+.nav-Volunteer,
+.nav-Report,
+.nav-Donate {
+    display: inline-block;
+    width: 250px;   /* Bigger square */
+    height: 250px;  /* Bigger square */
+    text-align: center;
+    vertical-align: top;
+}
+
+/* Images fit inside square nicely */
+.nav-Volunteer img,
+.nav-Report img,
+.nav-Donate img {
+    width: 100%;
+    height: 200px; /* Adjust proportion inside larger square */
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Image hover effect: zoom + drop */
+.nav-Volunteer img:hover,
+.nav-Report img:hover,
+.nav-Donate img:hover {
+    transform: scale(1.05) translateY(5px);
+    cursor: pointer;
+}
+
+/* Style buttons */
+.nav-Volunteer button,
+.nav-Report button,
+.nav-Donate button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #50ffc8, #0ce18c);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect: turns white */
+.nav-Volunteer button:hover,
+.nav-Report button:hover,
+.nav-Donate button:hover {
+    background: white;
+    color: #0ed7a1;
+    transform: scale(1.1);
+}
+
+/* Donation Page Styling */
+.donation-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: transparent; /* Allow gradient to show through */
+    gap: 30px;
+}
+
+.donation-hero img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.donation-hero h1 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    background-color: transparent; /* Allow gradient to show through */
+}
+
+.donation-option {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(249, 249, 249, 0.8); /* Semi-transparent for subtle overlay on gradient */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+.donation-option h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.donation-icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.donation-option button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #50ffc8, #0ce18c);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.donation-option button:hover {
+    background: white;
+    color: #0ed7a1;
+    transform: scale(1.05);
+}
+
+.bank-details {
+    padding: 40px;
+    background-color: transparent; /* Allow gradient to show through */
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.bank-details h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.thank-you {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+    background-color: transparent; /* Allow gradient to show through */
+    gap: 30px;
+    border-top: 1px solid #ddd;
+}
+
+.thank-you img {
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.thank-you h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.donation-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent for form visibility on gradient */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+    border: 1px solid #ddd;
+}
+
+.donation-form input, 
+.donation-form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.donation-form button {
+    background: linear-gradient(45deg, #50ffc8, #0ce18c);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.donation-form button:hover {
+    background: white;
+    color: #0ed7a1;
+    transform: scale(1.05);
+}
+
+.thank-you img {
+    width: 1000px;
+    height: 415px;
+    object-fit: cover; /* keeps aspect ratio cropped nicely */
+    border-radius: 10px; /* optional rounded corners */
+}
+
+.nav-Volunteer button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Image Carousel Styles */
+.carousel-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.carousel-nav-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    cursor: pointer;
+}
+
+.carousel-nav-btn.active {
+    background: white;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    width: 350px; /* Smaller width */
+    border-radius: 15px;
+    border: 4px solid #006400;
+    box-shadow: 0 8px 20px rgba(0, 100, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.03);
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #006400;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1em;
+    flex: 1 1 200px; /* Each button gets its own row if space is tight */
+    max-width: 250px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #004d00;
+}
