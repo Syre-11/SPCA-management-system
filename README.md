@@ -17,7 +17,7 @@ The platform includes role-based access for staff and veterinarians, with public
 ## Technical Highlights
 - Implemented role-based access control (admin, veterinary staff, volunteers, public users)  
 - Enforced business rules for animal welfare compliance and adoption eligibility  
-- Designed relational database structure for animals, users, reports, adoptions, and donations  
+- Designed a relational database structure to manage animals, users, reports, adoptions, and donations.
 - Developed public-facing features with secure backend validation  
 
 ## Technology Stack
