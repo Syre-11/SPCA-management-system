@@ -1,6 +1,7 @@
 # Makhanda SPCA Management System
 
 ## Overview
+
 Developed a web-based management system to support SPCA animal welfare operations. The system centralises animal intake, medical care, kennel allocation, cruelty reporting, adoptions, volunteer management, and donation tracking to improve operational efficiency and data accuracy.
 
 The platform includes role-based access for staff and veterinarians, with public-facing functionality that allows users to view adoptable animals and submit adoption applications without authentication.
