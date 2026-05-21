@@ -1,8 +1,8 @@
 <?php
-$serverName="";
-$user="";
-$password="";
-$database="";
+$serverName = "localhost";
+$user = "root";
+$password = "";
+$database = "mockdb";
 
 $conn=new mysqli($serverName,$user,$password,$database);
 

@@ -1,10 +1,9 @@
 <?php
 // DatabaseConnection.php - MySQLi-based database connection
-
-$serverName = "";
-$user = "";
+$serverName = "localhost";
+$user = "root";
 $password = "";
-$database = "";
+$database = "mockdb";
 
 $conn = new mysqli($serverName, $user, $password, $database);
 
