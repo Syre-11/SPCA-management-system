@@ -162,7 +162,7 @@ if (isset($_SESSION['success'])) {
 </head>
 <body>
 <div class="form-container">
-  <a href="../../frontPage.html" class="nav-btn"><i class="fas fa-home"></i></a>
+  <a href="LoginUser.php" class="nav-btn"><i class="fas fa-home"></i></a>
   <h2>Create New User</h2>
 
 

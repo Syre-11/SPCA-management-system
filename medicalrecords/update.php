@@ -1,10 +1,11 @@
 <?php
 // update.php
 
-$serverName = "";
-$user = "";
+$serverName = "localhost";
+$user = "root";
 $password = "";
-$database = "";
+$database = "mockdb";
+
 
 // Create connection
 $conn = new mysqli($serverName, $user, $password, $database);
@@ -12,7 +13,7 @@ if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
 // Handle form submission (update)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_record'])) {
-    $record_id = intval($_POST['Record_ID']);
+    $record_id = intval($_POST['id']);
     $animal_id = $_POST['Animal_ID'];
     $procedure_type = $_POST['procedure_type'];
     $procedure_date = $_POST['procedure_date'];
@@ -41,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_record'])) {
     $stmt = $conn->prepare("UPDATE medicalrecords SET 
             Animal_ID=?, procedure_type=?, procedure_date=?, next_due_date=?, vet_id=?, 
             medication=?, dosage=?, frequency=?, duration=?, cost=?, status=?, notes=? 
-            WHERE Record_ID=?");
+            WHERE id=?");
     $stmt->bind_param(
         "ssssisssssssi", 
         $animal_id, $procedure_type, $procedure_date, $next_due_date, 
@@ -59,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_record'])) {
 // Handle GET request to show the edit form
 if (isset($_GET['edit_id'])) {
     $edit_id = intval($_GET['edit_id']);
-    $result = $conn->query("SELECT * FROM medicalrecords WHERE Record_ID = $edit_id");
+    $result = $conn->query("SELECT * FROM medicalrecords WHERE id = $edit_id");
     if ($result && $result->num_rows > 0) {
         $record = $result->fetch_assoc();
     } else {
@@ -130,7 +131,7 @@ $conn->close();
         <?php endif; ?>
 
         <form id="updateForm" method="POST" action="update.php">
-            <input type="hidden" name="Record_ID" value="<?php echo $record['Record_ID']; ?>">
+            <input type="hidden" name="id" value="<?php echo $record['id']; ?>">
 
             <!-- Animal ID -->
             <div class="form-group">

@@ -5,7 +5,12 @@ include 'DatabaseConnection.php'; // DB connection
 $totalAnimals = $conn->query("SELECT COUNT(*) AS count FROM animal")->fetch_assoc()['count'];
 
 // Open cruelty reports (status = Active)
-$openReports = $conn->query("SELECT COUNT(*) AS count FROM crueltyreport WHERE Status='Active'")->fetch_assoc()['count'];
+$openReports = $conn->query("
+    SELECT COUNT(*) AS count 
+    FROM crueltyreport 
+    WHERE Status IN ('New', 'Open', 'In Progress')
+    AND deleted = 0
+")->fetch_assoc()['count'];
 
 // Pending adoptions
 $pendingAdoptions = $conn->query("SELECT COUNT(*) AS count FROM adoptionapplication WHERE Application_Status='Pending'")->fetch_assoc()['count'];

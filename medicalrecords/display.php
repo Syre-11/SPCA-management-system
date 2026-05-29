@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$serverName = "";
-$user = "";
+$serverName = "localhost";
+$user = "root";
 $password = "";
-$database = "";
+$database = "mockdb";
 
 // Create connection
 $conn = new mysqli($serverName, $user, $password, $database);
@@ -23,7 +23,7 @@ if (isset($_GET['search_animal_id']) && !empty($_GET['search_animal_id'])) {
 // Handle soft delete (archive) action
 if (isset($_GET['archive_id'])) {
     $archive_id = intval($_GET['archive_id']);
-    $conn->query("UPDATE medicalrecords SET Hide = 1 WHERE Record_ID = $archive_id");
+    $conn->query("UPDATE medicalrecords SET Hide = 1 WHERE id = $archive_id");
     header("Location: display.php?message=Record+archived+successfully");
     exit;
 }
@@ -31,7 +31,7 @@ if (isset($_GET['archive_id'])) {
 // Handle recover action
 if (isset($_GET['recover_id'])) {
     $recover_id = intval($_GET['recover_id']);
-    $conn->query("UPDATE medicalrecords SET Hide = 0 WHERE Record_ID = $recover_id");
+    $conn->query("UPDATE medicalrecords SET Hide = 0 WHERE id = $recover_id");
     header("Location: display.php?message=Record+recovered+successfully");
     exit;
 }
@@ -540,10 +540,10 @@ $conn->close();
                             </td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="update.php?edit_id=<?php echo $row['Record_ID']; ?>" class="action-btn edit-btn">
+                                    <a href="update.php?edit_id=<?php echo $row['id']; ?>" class="action-btn edit-btn">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
-                                    <a href="?archive_id=<?php echo $row['Record_ID']; ?>" class="action-btn delete-btn"
+                                    <a href="?archive_id=<?php echo $row['id']; ?>" class="action-btn delete-btn"
                                         onclick="return confirm('Are you sure you want to archive this record?')">
                                         <i class="fas fa-archive"></i> Delete
                                     </a>
@@ -603,7 +603,7 @@ $conn->close();
                             </td>
                             <td>
                                 <div class="action-buttons">
-                                    <a href="?recover_id=<?php echo $row['Record_ID']; ?>" class="action-btn recover-btn"
+                                    <a href="?recover_id=<?php echo $row['id']; ?>" class="action-btn recover-btn"
                                         onclick="return confirm('Are you sure you want to recover this record?')">
                                         <i class="fas fa-undo"></i> Recover
                                     </a>

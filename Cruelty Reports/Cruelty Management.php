@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         : "Anonymous cruelty report submitted. <br>Your Report ID is: <strong>{$lastReportId}</strong>";
 
     // Redirect back to form or another page
-    header("Location: cruelty_form.php");
+    header("Location: Cruelty Management.php");
     exit();
 }
 ?>
