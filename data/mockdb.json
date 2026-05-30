@@ -1,0 +1,339 @@
+{
+  "systemuser": [
+    {
+      "SystemUser_ID": 1,
+      "username": "admin",
+      "firstname": "Thabo",
+      "surname": "Mbeki",
+      "dateOfBirth": "1985-03-12",
+      "email": "admin@spcamakhanda.demo",
+      "password": "Admin123!",
+      "phone": "0466223233",
+      "gender": "Male",
+      "position": "Administrative Staff"
+    },
+    {
+      "SystemUser_ID": 2,
+      "username": "drsmith",
+      "firstname": "Sarah",
+      "surname": "Smith",
+      "dateOfBirth": "1990-07-22",
+      "email": "vet@spcamakhanda.demo",
+      "password": "Vet123!",
+      "phone": "0833261604",
+      "gender": "Female",
+      "position": "Veterinary Staff"
+    },
+    {
+      "SystemUser_ID": 3,
+      "username": "volunteer1",
+      "firstname": "Lindiwe",
+      "surname": "Nkosi",
+      "dateOfBirth": "1998-11-05",
+      "email": "volunteer@spcamakhanda.demo",
+      "password": "Vol123!",
+      "phone": "0721234567",
+      "gender": "Female",
+      "position": "Volunteer Staff"
+    }
+  ],
+  "animal": [
+    {
+      "Animal_ID": 1,
+      "Animal_Name": "Buddy",
+      "Animal_Species": "Dog",
+      "Animal_Breed": "Labrador",
+      "Animal_Age": 3,
+      "Animal_Gender": "Male",
+      "Animal_Size": "Large",
+      "Animal_Health": "Good",
+      "Animal_Arrival_Date": "2025-01-15",
+      "Animal_AdoptionStatus": "Available",
+      "Kennel_ID": "K01"
+    },
+    {
+      "Animal_ID": 2,
+      "Animal_Name": "Whiskers",
+      "Animal_Species": "Cat",
+      "Animal_Breed": "Domestic Shorthair",
+      "Animal_Age": 2,
+      "Animal_Gender": "Female",
+      "Animal_Size": "Small",
+      "Animal_Health": "Excellent",
+      "Animal_Arrival_Date": "2025-02-03",
+      "Animal_AdoptionStatus": "Available",
+      "Kennel_ID": "K05"
+    },
+    {
+      "Animal_ID": 3,
+      "Animal_Name": "Rocky",
+      "Animal_Species": "Dog",
+      "Animal_Breed": "German Shepherd",
+      "Animal_Age": 5,
+      "Animal_Gender": "Male",
+      "Animal_Size": "Large",
+      "Animal_Health": "Fair",
+      "Animal_Arrival_Date": "2024-11-20",
+      "Animal_AdoptionStatus": "Pending",
+      "Kennel_ID": "K02"
+    },
+    {
+      "Animal_ID": 4,
+      "Animal_Name": "Mittens",
+      "Animal_Species": "Cat",
+      "Animal_Breed": "Siamese",
+      "Animal_Age": 1,
+      "Animal_Gender": "Female",
+      "Animal_Size": "Small",
+      "Animal_Health": "Good",
+      "Animal_Arrival_Date": "2025-03-10",
+      "Animal_AdoptionStatus": "Available",
+      "Kennel_ID": "K06"
+    },
+    {
+      "Animal_ID": 5,
+      "Animal_Name": "Max",
+      "Animal_Species": "Dog",
+      "Animal_Breed": "Beagle",
+      "Animal_Age": 4,
+      "Animal_Gender": "Male",
+      "Animal_Size": "Medium",
+      "Animal_Health": "Good",
+      "Animal_Arrival_Date": "2025-04-01",
+      "Animal_AdoptionStatus": "Adopted",
+      "Kennel_ID": null
+    }
+  ],
+  "kennel": [
+    { "Kennel_ID": "K01", "Availability": 1, "Capacity": 1, "Location": "Block A" },
+    { "Kennel_ID": "K02", "Availability": 0, "Capacity": 1, "Location": "Block A" },
+    { "Kennel_ID": "K03", "Availability": 1, "Capacity": 1, "Location": "Block A" },
+    { "Kennel_ID": "K04", "Availability": 1, "Capacity": 2, "Location": "Block B" },
+    { "Kennel_ID": "K05", "Availability": 0, "Capacity": 1, "Location": "Block B" },
+    { "Kennel_ID": "K06", "Availability": 0, "Capacity": 1, "Location": "Block C" }
+  ],
+  "veterinarians": [
+    {
+      "vet_id": 1,
+      "vet_first_name": "Sarah",
+      "vet_last_name": "Smith",
+      "is_active": 1,
+      "specialization": "General Practice"
+    },
+    {
+      "vet_id": 2,
+      "vet_first_name": "James",
+      "vet_last_name": "Wilson",
+      "is_active": 1,
+      "specialization": "Surgery"
+    }
+  ],
+  "medicalrecords": [
+    {
+      "id": 1,
+      "Record_ID": 1,
+      "Animal_ID": 3,
+      "procedure_type": "Vaccination",
+      "vet_id": 1,
+      "procedure_date": "2025-04-10",
+      "next_due_date": "2026-04-10",
+      "medication": "Rabies vaccine",
+      "dosage": "1 ml",
+      "frequency": "Once",
+      "duration": "1 day",
+      "cost": 350.0,
+      "status": "Completed",
+      "notes": "Annual booster",
+      "Hide": 0
+    },
+    {
+      "id": 2,
+      "Record_ID": 2,
+      "Animal_ID": 1,
+      "procedure_type": "Check-up",
+      "vet_id": 1,
+      "procedure_date": "2025-05-01",
+      "next_due_date": "2025-06-01",
+      "medication": "None",
+      "dosage": "",
+      "frequency": "",
+      "duration": "",
+      "cost": 200.0,
+      "status": "Pending",
+      "notes": "Follow-up weight check",
+      "Hide": 0
+    },
+    {
+      "id": 3,
+      "Record_ID": 3,
+      "Animal_ID": 2,
+      "procedure_type": "Spay/Neuter",
+      "vet_id": 2,
+      "procedure_date": "2025-03-20",
+      "next_due_date": "2025-03-27",
+      "medication": "Meloxicam",
+      "dosage": "0.5 mg/kg",
+      "frequency": "Daily",
+      "duration": "5 days",
+      "cost": 1200.0,
+      "status": "Completed",
+      "notes": "Routine sterilisation",
+      "Hide": 0
+    }
+  ],
+  "crueltyreport": [
+    {
+      "Report_ID": 101,
+      "ReportDate": "2025-05-15",
+      "Description": "Dog tied without water in backyard",
+      "Location": "Extension 9, Makhanda",
+      "FK_Animal_ID": 3,
+      "FK_Reporter_ID": 1,
+      "FK_SystemUser_ID": 1,
+      "evidence": "",
+      "Status": "Open",
+      "Urgent": 1,
+      "deleted": 0
+    },
+    {
+      "Report_ID": 102,
+      "ReportDate": "2025-05-20",
+      "Description": "Emaciated cat seen near school",
+      "Location": "High Street, Makhanda",
+      "FK_Animal_ID": 2,
+      "FK_Reporter_ID": 2,
+      "FK_SystemUser_ID": 1,
+      "evidence": "",
+      "Status": "New",
+      "Urgent": 0,
+      "deleted": 0
+    },
+    {
+      "Report_ID": 103,
+      "ReportDate": "2025-04-28",
+      "Description": "Resolved neglect case - owner educated",
+      "Location": "Joza, Makhanda",
+      "FK_Animal_ID": 1,
+      "FK_Reporter_ID": null,
+      "FK_SystemUser_ID": 1,
+      "evidence": "",
+      "Status": "Resolved",
+      "Urgent": 0,
+      "deleted": 0
+    }
+  ],
+  "reporter": [
+    {
+      "Reporter_ID": 1,
+      "FirstName": "John",
+      "Surname": "Doe",
+      "CellNumber": "0821112233",
+      "Email": "john.doe@example.com"
+    },
+    {
+      "Reporter_ID": 2,
+      "FirstName": "Mary",
+      "Surname": "Peters",
+      "CellNumber": "0834445566",
+      "Email": "mary.p@example.com"
+    }
+  ],
+  "adoptionapplication": [
+    {
+      "Application_ID": 201,
+      "First_Name": "Alice",
+      "Last_Name": "Johnson",
+      "Email": "alice.j@example.com",
+      "Phone": "0823344556",
+      "Animal_Name": "Buddy",
+      "Address": "12 Hill Street, Makhanda",
+      "Experience": "Owned dogs for 10 years",
+      "Application_Status": "Pending",
+      "Application_Date": "2025-05-22"
+    },
+    {
+      "Application_ID": 202,
+      "First_Name": "Peter",
+      "Last_Name": "Brown",
+      "Email": "peter.b@example.com",
+      "Phone": "0837788990",
+      "Animal_Name": "Whiskers",
+      "Address": "45 Church Street, Makhanda",
+      "Experience": "First-time cat owner",
+      "Application_Status": "Approved",
+      "Application_Date": "2025-05-10"
+    }
+  ],
+  "alldonations": [
+    {
+      "donor_id": 1,
+      "name": "Corporate",
+      "surname": "Sponsor",
+      "email": "sponsor@example.com",
+      "CellNumber": "0460001111",
+      "Amount": 5000.0,
+      "DonationDate": "2025-05-01",
+      "PaymentMethod": "EFT"
+    },
+    {
+      "donor_id": 2,
+      "name": "Jane",
+      "surname": "Smith",
+      "email": "jane.s@example.com",
+      "CellNumber": "0825551234",
+      "Amount": 250.0,
+      "DonationDate": "2025-05-18",
+      "PaymentMethod": "Card"
+    },
+    {
+      "donor_id": 3,
+      "name": "Anonymous",
+      "surname": "Donor",
+      "email": "",
+      "CellNumber": "",
+      "Amount": 100.0,
+      "DonationDate": "2025-05-25",
+      "PaymentMethod": "Cash"
+    }
+  ],
+  "VolunteerApplication": [
+    {
+      "Application_ID": 301,
+      "FirstName": "Sam",
+      "LastName": "Govender",
+      "Email": "sam.g@example.com",
+      "Phone": "0729988776",
+      "Status": "Pending",
+      "IsHidden": 0,
+      "CreatedAt": "2025-05-24T10:00:00"
+    },
+    {
+      "Application_ID": 302,
+      "FirstName": "Nomsa",
+      "LastName": "Dlamini",
+      "Email": "nomsa.d@example.com",
+      "Phone": "0831122334",
+      "Status": "Approved",
+      "IsHidden": 0,
+      "CreatedAt": "2025-04-15T09:30:00"
+    }
+  ],
+  "VolunteerHours": [
+    {
+      "Hours_ID": 1,
+      "Volunteer_ID": 302,
+      "ActivityType": "Dog walking",
+      "Hours": 4,
+      "DatePerformed": "2025-05-20",
+      "Verified": 1
+    },
+    {
+      "Hours_ID": 2,
+      "Volunteer_ID": 302,
+      "ActivityType": "Kennel cleaning",
+      "Hours": 3,
+      "DatePerformed": "2025-05-12",
+      "Verified": 1
+    }
+  ]
+}

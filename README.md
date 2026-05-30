@@ -27,3 +27,13 @@ The platform includes role-based access for staff and veterinarians, with public
 - JavaScript  
 - PHP  
 - MySQL  
+
+## GitHub Pages (static demo)
+
+The app can be published as a static site with in-browser mock data (no PHP/MySQL required on the host).
+
+1. Run `npm run build:static` to generate the `dist/` folder.
+2. Push to `main` — GitHub Actions deploys automatically (see `.github/workflows/deploy-pages.yml`).
+3. Enable **Settings → Pages → Source: GitHub Actions**.
+
+**Demo logins:** `admin` / `Admin123!` (Administrative Staff), `drsmith` / `Vet123!` (Veterinary Staff), `volunteer1` / `Vol123!` (Volunteer Staff). Details in [README-STATIC.md](README-STATIC.md).

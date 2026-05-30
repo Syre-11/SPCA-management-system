@@ -1,4 +1,6 @@
 <?php
+// Local XAMPP: uses MySQL database "mockdb".
+// GitHub Pages: run `npm run build:static` — see README-STATIC.md.
 $serverName = "localhost";
 $user = "root";
 $password = "";

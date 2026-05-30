@@ -1,0 +1,7 @@
+{
+  "name": "spca-management-system",
+  "private": true,
+  "scripts": {
+    "build:static": "node scripts/build-static.mjs"
+  }
+}

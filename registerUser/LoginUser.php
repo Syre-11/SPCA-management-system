@@ -164,9 +164,7 @@ unset($_SESSION['error']); // Clear error after showing
     <h2>Welcome Back</h2>
     <p>Please log in to continue</p>
     
-    <?php if ($error): ?>
-      <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php endif; ?>
+    <p id="spca-login-error" style="color:red;"><?php if ($error) echo htmlspecialchars($error); ?></p>
     
     <form action="Login.php" method="post">
       <div class="input-group">
