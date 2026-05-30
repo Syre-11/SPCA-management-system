@@ -22,7 +22,7 @@ nav {
     align-items: center;
     padding: 10px 5%;
     background-color:  #03574fb8;
-    background: #056f65b8(26, 227, 204, 0.7);
+    background: rgba(5, 111, 101, 0.85);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;

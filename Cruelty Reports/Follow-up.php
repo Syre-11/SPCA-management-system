@@ -85,14 +85,14 @@ $notesStmt->close();
 </head>
 <body>
     <nav class="navbar">
-    <a href="Homepage.html" class="logo">
+    <a href="../frontPage.html" class="logo">
         <img src="Paw prints logo.png" alt="Logo">
     </a>
     <div class="nav-links">
         <ul>
             <li><a href="admin_dashboard.php">Home</a></li>
             <li><a href="Viewallreports.php">All Reports</a></li>
-            <li><a href="">Logout</a></li>
+            <li><a href="../registerUser/logout.php">Logout</a></li>
         </ul>
     </div>
 </nav>

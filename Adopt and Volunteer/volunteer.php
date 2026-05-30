@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lookup'])) {
     <!-- SECTION 1: Main Navigation Bar at Very Top -->
     <nav>
         <div class="nav-logo">
-            <a href="#">
+            <a href="../frontPage.html">
                 <img src="../images/Logo.png" alt="Makhanda SPCA Logo">
             </a>
             <h2>Paw Prints</h2>
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lookup'])) {
         <div class="nav-links" id="navLinks">
             <ul>
                 <li><a href="../frontPage.html">Home</a></li>
-                <li><a href="About us/aboutUs.html">About</a></li>
+                <li><a href="../About us/aboutUs.html">About</a></li>
                 <li>
                     <a href="#services">Services</a>
                     <ul class="Services">
@@ -381,7 +381,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lookup'])) {
     <footer>
         <h2 class="footerHeader">Paw Prints - Where every paw matters</h2>
         <hr>
-        <a href="frontPage.html"><img src="Paw prints logo.png" alt="Makhanda SPCA Logo"></a>
+        <a href="../frontPage.html"><img src="Paw prints logo.png" alt="Makhanda SPCA Logo"></a>
         <div class="footer-container">
             <ul>
                 <li>Who Are We</li>

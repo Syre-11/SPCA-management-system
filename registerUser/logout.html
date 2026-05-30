@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logout</title>
+  <meta http-equiv="refresh" content="0;url=../frontPage.html">
+</head>
+<body class="spca-app">
+  <p>Signing out…</p>
+  <script>
+    sessionStorage.removeItem('spca_session');
+    window.location.replace('../frontPage.html');
+  </script>
+</body>
+</html>

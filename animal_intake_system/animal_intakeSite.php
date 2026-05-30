@@ -122,7 +122,8 @@ if (isset($_GET['message']) && isset($_GET['type'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animal Intake</title>
-    <!--- <link rel="stylesheet" href="animal_records_theme.css">--->
+    <link rel="stylesheet" href="animal_records_theme.css">
+    <link rel="stylesheet" href="dashbaord and create record.css">
 
     <style>
         /* Reset */
@@ -584,7 +585,7 @@ if (isset($_GET['message']) && isset($_GET['type'])) {
     <!-- Navigation Bar -->
     <nav>
         <div class="nav-logo">
-            <img src="images/Logo.png" alt="Makhanda SPCA Logo">
+            <img src="../images/Logo.png" alt="Makhanda SPCA Logo">
             <h2>Paw Prints</h2>
         </div>
         <div class="nav-links">

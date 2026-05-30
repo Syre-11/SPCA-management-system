@@ -21,35 +21,14 @@ if (isset($_SESSION['success'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Registration | Makhanda SPCA</title>
+  <link rel="stylesheet" href="../css/auth.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
+    body.spca-auth-page {
       background: linear-gradient(rgba(26, 227, 204, 0.7), rgba(26, 227, 204, 0.7)),
-                  url("images/nav-pictures/Volunteer.jpg") center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+                  url("../images/nav-pictures/Voulnteer.jpg") center/cover no-repeat;
     }
-    .nav-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #0ce18c;
-      color: white;
-      padding: 8px 10px;
-      border-radius: 8px;
-      font-size: 16px;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
-    .nav-btn:hover {
-      background: #13cebb;
-      transform: scale(1.1);
-    }
+    .login-container { max-width: 480px; }
     .form-container {
       position: relative;
       background: white;
@@ -160,7 +139,7 @@ if (isset($_SESSION['success'])) {
     }
   </style>
 </head>
-<body>
+<body class="spca-auth-page spca-app">
 <div class="form-container">
   <a href="LoginUser.php" class="nav-btn"><i class="fas fa-home"></i></a>
   <h2>Create New User</h2>

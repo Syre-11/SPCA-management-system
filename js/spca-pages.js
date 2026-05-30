@@ -62,8 +62,6 @@
     }
     const hint = document.createElement('div');
     hint.className = 'spca-demo-hint';
-    hint.style.cssText =
-      'margin-top:16px;padding:12px;background:#e8f5f3;border-radius:8px;font-size:13px;text-align:left;';
     hint.innerHTML =
       '<strong>Demo logins</strong> (pre-filled):<br>' +
       'Admin — <code>admin</code> / <code>Admin123!</code><br>' +
@@ -189,7 +187,9 @@
     const tbody = document.querySelector('table tbody');
     renderTableBody(tbody, animals, (a) => {
       const base = auth().abs('animal_intake_system/');
+      const img = auth().abs('images/Logo.png');
       return `<tr>
+        <td><img class="animal-image" src="${img}" alt=""></td>
         <td>${esc(a.Animal_ID)}</td>
         <td>${esc(a.Animal_Name)}</td>
         <td>${esc(a.Animal_Species)}</td>

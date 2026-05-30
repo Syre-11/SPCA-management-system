@@ -2,6 +2,8 @@
   "name": "spca-management-system",
   "private": true,
   "scripts": {
-    "build:static": "node scripts/build-static.mjs"
+    "build:static": "node scripts/build-static.mjs",
+    "validate:static": "node scripts/validate-static.mjs",
+    "build": "node scripts/build-static.mjs && node scripts/validate-static.mjs"
   }
 }

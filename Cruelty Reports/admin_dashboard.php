@@ -61,7 +61,7 @@ if ($result && $result->num_rows > 0) {
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar">
-    <a href="Homepage.html" class="logo">
+    <a href="../frontPage.html" class="logo">
       <img src="Paw prints logo.png" alt="Logo">
     </a>
     <div class="nav-links">
@@ -71,7 +71,7 @@ if ($result && $result->num_rows > 0) {
         <li><a href="../Adopt and Volunteer/adoption.management.php">Adoptions</a></li>
         <li><a href="../DONATIONS/displayAllDonors.php">Donations</a></li>
         <li><a href="../Adopt and Volunteer/volunteer_management.php">Volunteers</a></li>
-        <li><a href="../registerUser/display_users.php">User</a><li>
+        <li><a href="../registerUser/display_users.php">User</a></li>
         <li><a href="../registerUser/logout.php">Logout</a></li>
       </ul>
     </div>

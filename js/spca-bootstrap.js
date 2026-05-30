@@ -22,8 +22,6 @@
     el.innerHTML =
       '<strong>Static demo</strong> — data is stored in your browser. ' +
       '<a href="#" id="spca-reset-data">Reset mock data</a>';
-    el.style.cssText =
-      'background:#fff3cd;color:#664d03;padding:8px 16px;text-align:center;font-size:14px;border-bottom:1px solid #ffc107;';
     document.body.prepend(el);
     el.querySelector('#spca-reset-data').addEventListener('click', async (e) => {
       e.preventDefault();

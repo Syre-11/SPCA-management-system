@@ -38,7 +38,6 @@ const HANDLER_ONLY = new Set([
   'fetch_alerts.php',
   'get_all_kennels.php',
   'get_kennel_data.php',
-  'allocate_kennel.php',
   'verifyidentity.php',
   'databaseconnection.php',
 ]);
@@ -76,39 +75,32 @@ function stripPhp(content) {
   return body;
 }
 
-function fixLinks(content, relDepth) {
-  const prefix = relDepth > 0 ? '../'.repeat(relDepth) : '';
-  let c = content.replace(/\.php\b/gi, '.html');
-  c = c.replace(/href=["']([^"']*)["']/gi, (match, url) => {
-    if (/^(https?:|#|mailto:|javascript:)/i.test(url)) return match;
-    if (url.startsWith('/') || url.includes('://')) return match;
-    return `href="${prefix}${url}"`;
-  });
-  c = c.replace(/action=["']([^"']*)["']/gi, (match, url) => {
-    if (/^(https?:|#|javascript:)/i.test(url)) return match;
-    const handler = url.split('/').pop()?.toLowerCase().replace(/\.html$/, '.php');
-    if (HANDLER_ONLY.has(handler) || /login\.html$/i.test(url)) {
-      return 'action="#"';
-    }
-    if (!url.includes('://') && !url.startsWith('/')) {
-      return `action="${prefix}${url.replace(/\.php$/i, '.html')}"`;
-    }
-    return match;
-  });
-  return c;
+function fixLinks(content) {
+  return content.replace(/\.php\b/gi, '.html');
 }
 
 function injectBootstrap(html, depth) {
   const base = depth > 0 ? '../'.repeat(depth) : '';
   const meta = `<meta name="spca-base" content="${BASE_PATH}">`;
-  const scripts = `
-<script src="${base}js/spca-bootstrap.js" defer></script>`;
+  const links = `<link rel="stylesheet" href="${base}css/spca-global.css">`;
+  const scripts = `\n<script src="${base}js/spca-bootstrap.js" defer></script>`;
   let out = html;
   if (!out.includes('name="spca-base"')) {
-    out = out.replace(/<head([^>]*)>/i, `<head$1>\n  ${meta}`);
+    out = out.replace(/<head([^>]*)>/i, `<head$1>\n  ${meta}\n  ${links}`);
+  } else if (!out.includes('spca-global.css')) {
+    out = out.replace(/<head([^>]*)>/i, `<head$1>\n  ${links}`);
   }
   if (!out.includes('spca-bootstrap.js')) {
     out = out.replace(/<\/body>/i, `${scripts}\n</body>`);
+  }
+  out = fixFormActions(out);
+  if (!/\bclass=["'][^"']*spca-app/.test(out)) {
+    out = out.replace(/<body([^>]*)>/i, (m, attrs) => {
+      if (/class=/i.test(attrs)) {
+        return m.replace(/class=["']([^"']*)["']/i, 'class="$1 spca-app"');
+      }
+      return `<body${attrs} class="spca-app">`;
+    });
   }
   return out;
 }
@@ -126,10 +118,20 @@ function folderDepth(relToDist) {
 }
 
 function processHtmlContent(content, relToDist) {
-  const depth = folderDepth(relToDist);
-  content = fixLinks(content, depth);
-  content = injectBootstrap(content, depth);
+  content = fixLinks(content);
+  content = injectBootstrap(content, folderDepth(relToDist));
   return content;
+}
+
+function fixFormActions(content) {
+  return content.replace(/action=["']([^"']*)["']/gi, (match, url) => {
+    if (/^(https?:|#|javascript:)/i.test(url)) return match;
+    const handler = url.split('/').pop()?.toLowerCase().replace(/\.html$/, '.php');
+    if (HANDLER_ONLY.has(handler) || /login\.html$/i.test(url)) {
+      return 'action="#"';
+    }
+    return match.replace(/\.php\b/gi, '.html');
+  });
 }
 
 function convertPhpFile(srcPath, destPath) {
@@ -161,7 +163,7 @@ function walkPhp(dir, rel = '') {
     const relPath = path.join(rel, ent.name);
     const full = path.join(dir, ent.name);
     if (ent.isDirectory()) {
-      if (ent.name.toLowerCase() === 'backups') continue;
+      if (ent.name.toLowerCase() === 'backups' || /old-do_not use/i.test(ent.name)) continue;
       walkPhp(full, relPath);
     } else if (ent.name.toLowerCase().endsWith('.php')) {
       const dest = path.join(DIST, relPath);
@@ -207,6 +209,7 @@ function main() {
     if (!fs.existsSync(dir)) return;
     for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
       if (SKIP_DIRS.has(ent.name) || ent.name.toLowerCase() === 'backups') continue;
+      if (/old-do_not use/i.test(ent.name)) continue;
       const relPath = path.join(rel, ent.name);
       const full = path.join(dir, ent.name);
       if (ent.isDirectory()) walkHtml(full, relPath);

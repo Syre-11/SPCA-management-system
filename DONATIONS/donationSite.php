@@ -1329,7 +1329,7 @@ footer p {
     <footer>
         <h2 class="footerHeader">Paw Prints - Where every paw matters</h2>
         <hr>
-        <a href="frontPage.html">
+        <a href="../frontPage.html">
             <img src="../images/Logo.png" alt="Makhanda SPCA Logo">
         </a>
         <ul class="footer-container">
@@ -1347,8 +1347,8 @@ footer p {
             </ul>
             <ul>
                 <li>POLICIES</li>
-                <li><a href="images/documents/Euthanasia.png">Euthanasia Policy</a></li>
-                <li><a href="images/documents/AnimalsProtectionAct.pdf">Animal Protection Act</a></li>
+                <li><a href="../images/documents/Euthanasia.png">Euthanasia Policy</a></li>
+                <li><a href="../images/documents/AnimalsProtectionAct.pdf">Animal Protection Act</a></li>
                 <li><a href="#">SPCA Policy Statement</a></li>
 
             </ul>

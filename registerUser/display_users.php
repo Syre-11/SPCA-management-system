@@ -31,6 +31,7 @@ if (!empty($search_term)) {
 <head>
     <meta charset="UTF-8">
     <title>System Users</title>
+    <link rel="stylesheet" href="animal_records_theme.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -201,7 +202,7 @@ if (!empty($search_term)) {
     </style>
 </head>
 <body>
-    <a href="Logout.php" class="back-btn">← Logout</a>
+    <a href="logout.php" class="back-btn">← Logout</a>
     <h1>System Users</h1>
 
     <div class="filters">

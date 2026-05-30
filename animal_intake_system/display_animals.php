@@ -80,6 +80,7 @@ $kennel_result = $conn->query("SELECT DISTINCT Kennel_ID FROM animal WHERE Kenne
 <head>
     <meta charset="UTF-8">
     <title>Animal Records</title>
+    <link rel="stylesheet" href="animal_records_theme.css">
     <style>
         /* Styles from adoption_records.php */
         .status-badge {
@@ -428,10 +429,7 @@ $kennel_result = $conn->query("SELECT DISTINCT Kennel_ID FROM animal WHERE Kenne
     });
     ?>
 
-    <?php if (empty($result) || $result->num_rows == 0): ?>
-        <p class="empty-state">No animal records found. (Fetched: <?php echo $result ? $result->num_rows : 0; ?> rows)</p>
-    <?php else: ?>
-        <table class="animal-records-table">
+    <table class="animal-records-table">
             <thead>
                 <tr>
                     <th>Image</th>
@@ -450,59 +448,38 @@ $kennel_result = $conn->query("SELECT DISTINCT Kennel_ID FROM animal WHERE Kenne
                 </tr>
             </thead>
             <tbody>
-                <?php
+            <?php
+            if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    // Determine health status class for styling
                     $health_class = 'health-' . strtolower($row['Animal_Health'] ?? 'unknown');
-                    $health_status = $row['Animal_Health'] ?? 'Not Set';
-
-                    // Determine size class for styling
+                    $health_status = htmlspecialchars($row['Animal_Health'] ?? 'Not Set');
                     $size_class = 'size-' . strtolower($row['Animal_Size'] ?? 'unknown');
-                    $size_display = $row['Animal_Size'] ?? 'Not Set';
-
-                    // Handle image display
-                    $image_path = !empty($row['picture']) ? "Uploads/{$row['picture']}" : "Uploads/default_animal.jpg";
-
-                    // Highlight search term in animal name (if searching)
-                    $animal_name = htmlspecialchars($row['Animal_Name']);
-                    if (!empty($search_term)) {
-                        $animal_name = preg_replace(
-                            "/(" . preg_quote($search_term, '/') . ")/i",
-                            "<mark>$1</mark>",
-                            $animal_name
-                        );
-                    }
-                    ?>
-                    <tr>
-                        <td><img class="animal-image" src="<?php echo $image_path; ?>"
-                                alt="<?php echo htmlspecialchars($row['Animal_Name']); ?>"></td>
-                        <td><?php echo htmlspecialchars($row['Animal_ID']); ?></td>
-                        <td><?php echo $animal_name; ?></td>
-                        <td><?php echo htmlspecialchars($row['Animal_Species']); ?></td>
-                        <td><?php echo htmlspecialchars($row['Animal_Breed']); ?></td>
-                        <td><?php echo htmlspecialchars($row['Animal_Age']); ?></td>
-                        <td><?php echo htmlspecialchars($row['Animal_Gender']); ?></td>
-                        <td><span class="<?php echo $size_class; ?>"><?php echo htmlspecialchars($size_display); ?></span></td>
-                        <td><span
-                                class="status-badge <?php echo $health_class; ?>"><?php echo htmlspecialchars($health_status); ?></span>
+                    $size_display = htmlspecialchars($row['Animal_Size'] ?? 'Not Set');
+                    $image_path = !empty($row['picture']) ? "Uploads/{$row['picture']}" : "../images/Logo.png";
+                    $id = (int) $row['Animal_ID'];
+                    echo "<tr>
+                        <td><img class=\"animal-image\" src=\"" . htmlspecialchars($image_path) . "\" alt=\"\"></td>
+                        <td>" . htmlspecialchars($row['Animal_ID']) . "</td>
+                        <td>" . htmlspecialchars($row['Animal_Name']) . "</td>
+                        <td>" . htmlspecialchars($row['Animal_Species']) . "</td>
+                        <td>" . htmlspecialchars($row['Animal_Breed']) . "</td>
+                        <td>" . htmlspecialchars($row['Animal_Age']) . "</td>
+                        <td>" . htmlspecialchars($row['Animal_Gender']) . "</td>
+                        <td><span class=\"{$size_class}\">{$size_display}</span></td>
+                        <td><span class=\"status-badge {$health_class}\">{$health_status}</span></td>
+                        <td>" . htmlspecialchars($row['Animal_Arrival_Date']) . "</td>
+                        <td>" . htmlspecialchars($row['Animal_AdoptionStatus']) . "</td>
+                        <td>" . htmlspecialchars($row['Kennel_ID']) . "</td>
+                        <td class=\"action-buttons\">
+                            <a class=\"btn-update\" href=\"update_animal.php?id={$id}\">Update</a>
+                            <a class=\"btn-delete\" href=\"#\" data-spca-delete-animal=\"{$id}\">Delete</a>
                         </td>
-                        <td><?php echo htmlspecialchars($row['Animal_Arrival_Date']); ?></td>
-                        <td><?php echo htmlspecialchars($row['Animal_AdoptionStatus']); ?></td>
-                        <td><?php echo htmlspecialchars($row['Kennel_ID']); ?></td>
-                        <td>
-                            <div class="action-buttons">
-                                <a class="btn-update" href="update_animal.php?id=<?php echo $row['Animal_ID']; ?>">Update</a>
-                                <a class="btn-delete" href="delete_animal.php?id=<?php echo $row['Animal_ID']; ?>"
-                                    onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <?php
+                    </tr>";
                 }
-                ?>
+            }
+            ?>
             </tbody>
         </table>
-    <?php endif; ?>
 
     <?php
     if ($stmt) {

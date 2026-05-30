@@ -502,7 +502,7 @@ $kennels_result = $conn->query($kennels_sql);
                 <li><a href="allocate_kennel.php">Allocate Kennel</a></li>
                 <li><a href="../Adopt and Volunteer/adoption.php">Adoption</a></li>
                 <li><a href="../Adopt and Volunteer/volunteer.php">Volunteer</a></li>
-                <li><a href="../Cruelty Reports/cruelty_reports.php">Cruelty Reports</a></li>
+                <li><a href="../Cruelty Reports/Viewallreports.php">Cruelty Reports</a></li>
             </ul>
         </div>
     </nav>

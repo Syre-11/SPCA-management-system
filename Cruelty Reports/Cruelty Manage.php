@@ -57,7 +57,7 @@ $reports = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cruelty Management - Makhanda SPCA</title>
-    <link rel="stylesheet" href="adoption.css">
+    <link rel="stylesheet" href="../Adopt and Volunteer/adoption.css">
     <style>
         /* Reset & Basic Styling */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
@@ -279,7 +279,7 @@ footer {
             <ul>
                 <li><a href="admin_dashboard.php">Dashboard</a></li>
                 <li><a href="Viewallreports.php">Reports</a></li>
-                <li><a href="../registerUser/Logout.php">Logout</a></li>
+                <li><a href="../registerUser/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>

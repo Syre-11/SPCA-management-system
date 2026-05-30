@@ -260,9 +260,9 @@ $kennels_result = $conn->query($kennels_sql);
         <h1> Edit Kennels</h1>
         
         <div class="action-buttons">
-            <a href="allocate_kennel.php" class="btn">Allocate Kennels</a>
-            <a href="display_animals.php" class="btn">View Animals</a>
-            <a href="animal_intake.HTML" class="btn">Add Animal</a>
+            <a href="../animal_intake_system/allocate_kennel.php" class="btn">Allocate Kennels</a>
+            <a href="../animal_intake_system/display_animals.php" class="btn">View Animals</a>
+            <a href="../animal_intake_system/animal_intakeSite.php" class="btn">Add Animal</a>
         </div>
 
         <div class="section">

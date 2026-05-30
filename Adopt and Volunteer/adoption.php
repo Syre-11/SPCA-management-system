@@ -168,10 +168,10 @@ $conn->close();
                 <li>
                     <a href="#services">Services</a>
                     <ul class="Services">
-                        <li><a href="adoption.php">Adopt</a></li>
-                        <li><a href="volunteer.php">Volunteer</a></li>
-                        <li><a href="../Cruelty Reports/Cruelty Management.php">Report</a></li>
-                        <li><a href="../DONATIONS/donationSite.php">Donate</a></li><br>
+                        <li><a href="adoption.html">Adopt</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="../Cruelty Reports/Cruelty Management.html">Report</a></li>
+                        <li><a href="../DONATIONS/donationSite.html">Donate</a></li>
                     </ul>
                 </li>
                 <li><a href="#contact">Contact</a></li>
