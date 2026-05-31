@@ -1,6 +1,17 @@
 # Static demo (GitHub Pages)
 
-This project can run on **XAMPP with PHP/MySQL** or as a **static demo** on GitHub Pages using mock data in the browser.
+## How it works (simple)
+
+This project has **two modes**:
+
+| Mode | Where | Database |
+|------|--------|----------|
+| **XAMPP (original)** | `http://localhost/...` | MySQL `mockdb` |
+| **Static demo** | GitHub Pages or `dist/` folder | `data/mockdb.json` in the browser |
+
+On the static demo, PHP is converted to HTML. **JavaScript fills each page** from mock data (`js/spca-store.js` + `js/spca-pages.js`). Data is saved in your browser (`localStorage`). Use **Reset mock data** in the yellow banner to restore defaults.
+
+You should see a green bar: *"Demo data loaded: 5 animals, 4 adoption apps..."* — if that is missing, open the site via a local server (`npx serve dist`), not by double-clicking HTML files.
 
 ## Demo logins
 
@@ -11,6 +22,18 @@ This project can run on **XAMPP with PHP/MySQL** or as a **static demo** on GitH
 | Volunteer | `volunteer1` | `Vol123!` | Volunteer Staff |
 
 The login page pre-fills the admin account. Data is seeded from `data/mockdb.json` and stored in `localStorage` (use **Reset mock data** in the yellow banner to restore defaults).
+
+## Pages with mock data
+
+| Area | Pages |
+|------|--------|
+| Login | Login, register |
+| Admin | Dashboard, users, cruelty manage, view reports |
+| Animals | Intake, display, kennels, update |
+| Adoptions | Public adopt form, records, management |
+| Medical | Vet dashboard, records list, create record |
+| Volunteers | Apply, records, management, dashboard |
+| Donations | Donation site, donor list |
 
 ## Build locally
 

@@ -1,4 +1,5 @@
-{
+// Auto-generated from data/mockdb.json — run: npm run embed:seed
+window.SPCA_MOCK_SEED = {
   "systemuser": [
     {
       "SystemUser_ID": 1,
@@ -432,4 +433,4 @@
       "Verified": 1
     }
   ]
-}
+};

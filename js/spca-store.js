@@ -25,16 +25,41 @@
       if (saved) {
         try {
           this.db = JSON.parse(saved);
+          this._loadedFrom = 'localStorage';
           return;
         } catch (_) {
           /* fall through to seed */
         }
       }
       const base = global.SPCA_BASE_PATH || '';
-      const res = await fetch(`${base}data/mockdb.json`);
-      if (!res.ok) throw new Error('Failed to load mockdb.json');
-      this.db = await res.json();
-      this._persist();
+      const paths = [
+        `${base}data/mockdb.json`,
+        'data/mockdb.json',
+        '../data/mockdb.json',
+        '../../data/mockdb.json',
+      ];
+      for (const url of paths) {
+        try {
+          const res = await fetch(url);
+          if (res.ok) {
+            this.db = await res.json();
+            this._loadedFrom = url;
+            this._persist();
+            return;
+          }
+        } catch (_) {
+          /* try next */
+        }
+      }
+      if (global.SPCA_MOCK_SEED) {
+        this.db = clone(global.SPCA_MOCK_SEED);
+        this._loadedFrom = 'embedded seed';
+        this._persist();
+        return;
+      }
+      throw new Error(
+        'Could not load mock data. Run npm run build and serve the dist/ folder.'
+      );
     }
 
     _persist() {
@@ -303,6 +328,65 @@
         if (a[field]) set.add(a[field]);
       });
       return [...set].sort();
+    }
+
+    getAnimal(id) {
+      return this.table('animal').find(
+        (a) => String(a.Animal_ID) === String(id)
+      );
+    }
+
+    getAnimalByName(name) {
+      return this.table('animal').find(
+        (a) => a.Animal_Name && a.Animal_Name.toLowerCase() === name.toLowerCase()
+      );
+    }
+
+    adoptableAnimals() {
+      return this.table('animal').filter(
+        (a) =>
+          a.Animal_AdoptionStatus === 'Available' &&
+          ['Excellent', 'Good'].includes(a.Animal_Health)
+      );
+    }
+
+    getReport(id) {
+      return this.table('crueltyreport').find(
+        (r) => String(r.Report_ID) === String(id)
+      );
+    }
+
+    getReporter(id) {
+      if (id == null) return null;
+      return this.table('reporter').find(
+        (r) => String(r.Reporter_ID) === String(id)
+      );
+    }
+
+    setCrueltyStatus(reportId, status) {
+      const r = this.getReport(reportId);
+      if (!r) return false;
+      r.Status = status;
+      this._persist();
+      return true;
+    }
+
+    setAdoptionStatus(appId, status) {
+      const rows = this.table('adoptionapplication');
+      const row = rows.find((a) => String(a.Application_ID) === String(appId));
+      if (!row) return false;
+      row.Application_Status = status;
+      this._persist();
+      return true;
+    }
+
+    enrichAdoption(app) {
+      const animal = this.getAnimalByName(app.Animal_Name);
+      return {
+        ...app,
+        Animal_Breed: animal?.Animal_Breed || 'Unknown',
+        Animal_Gender: animal?.Animal_Gender || 'Unknown',
+      };
     }
   }
 

@@ -64,6 +64,11 @@
   }
 
   async function init() {
+    try {
+      await loadScript('js/spca-mock-seed.js');
+    } catch (_) {
+      /* optional if not built yet */
+    }
     await loadScript('js/spca-store.js');
     await loadScript('js/spca-auth.js');
     await window.spcaStore.ready;
